@@ -13,6 +13,12 @@ public class DemonWithUserThread {
         t1.start();
         t2.start();
         t3.start();
+
+        //Daemon Thread
+        // with users threads where start() is invoked
+        // prior before setting thread to Daemon
+
+        t3.setDaemon(true);
     }
 }
 
