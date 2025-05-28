@@ -38,5 +38,34 @@ class TicketSystem implements Runnable
 
         System.out.println("State after starting ticket booking thread : " + MThd.getState());
 
+        try {
+            Thread.sleep(200);
+        }
+        catch(InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+        System.out.println("State after sleeping Ticket booking Thread : "  + MThd.getState());
+
+        try {
+            MThd.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("State after Ticket booking thread Terminated : " + MThd.getState());
+
+
+    }
+
+    public static void main(String[] args) {
+
+        TicketSystem ts = new TicketSystem();
+        mainThread = new Thread(ts);
+
+        System.out.println("State after creating main Thread : " + mainThread.getState());
+
+       mainThread.start();
+        System.out.println("State after stating main thread : " + mainThread.getState());
     }
 }
