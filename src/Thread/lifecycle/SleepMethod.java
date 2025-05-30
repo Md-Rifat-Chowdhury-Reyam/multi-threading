@@ -9,6 +9,7 @@ public class SleepMethod {
             // sleep the main thread for 1 sec
             // for every loop runs
             Thread.sleep(1000);
+            Thread.sleep(1000, 100000);
             System.out.println(i + " ");
         }
     }
